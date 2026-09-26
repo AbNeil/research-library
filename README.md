@@ -46,3 +46,7 @@ Do not proxy institutional sessions, embed access tokens, upload subscription PD
 ## Additional sources
 
 CORE offers a full-text API but requires an API credential. Unpaywall DOI requests require an email parameter. Neither is embedded as an assumed public credential in this static site. A future server endpoint could add those sources, cache responses, deduplicate versions and keep credentials private. Europe PMC is most relevant to papers in its subject coverage; the DOI check only adds an article when the returned DOI matches and an open PMC full-text identifier is supplied.
+
+## Optional reading analytics
+
+The repository includes an analytics dashboard (`analytics.html`) and a Cloudflare Worker/D1 implementation in `analytics-worker.js`, `analytics-schema.sql` and `analytics-wrangler.jsonc`. Until its backend is deployed and `analytics-config.js` contains the Worker URL, collection is off and the dashboard reports that setup is incomplete. Once configured, visitors choose whether to contribute anonymous activity counts. The dashboard requires a private token. See [ANALYTICS.md](ANALYTICS.md) for deployment and precise metric definitions. The topic graph is a dynamic grouping of clicked papers by reported research topic. The site can record outbound PDF-link clicks but cannot verify a download on a publisher or repository website.
