@@ -1,6 +1,6 @@
 # Research Library
 
-A static, searchable index of AI, machine learning, deep learning, data science, and language model papers. It can be hosted with GitHub Pages. The catalogue starts with a small, verified seed set. Additional entries should be checked against authoritative metadata and legitimate open full-text locations.
+A GitHub Pages search interface for AI, machine learning, deep learning, and data science papers. Enter a DOI for exact lookup or a title for live search across Crossref records from 2015 onward. The site queries OpenAlex for open copies. It can be hosted with GitHub Pages. The catalogue starts with a small, verified seed set. Additional entries should be checked against authoritative metadata and legitimate open full-text locations.
 
 ## Add papers
 
@@ -30,3 +30,9 @@ This repository is published with GitHub Pages from the `main` branch and root d
 ## Catalogue growth
 
 Use a defined source and scope before bulk importing. Crossref exposes publication metadata, while OpenAlex records an `open_access.oa_url` and `best_oa_location` where it knows an open copy. Verify identifiers, deduplicate DOI records, and review access links before publishing. The dataset is curated; it does not claim exhaustive coverage of all venues or papers.
+
+## Live search and limitations
+
+Title search requests up to 10 Crossref matches published since 2015 and looks up open copies by DOI through OpenAlex. DOI lookup first tries OpenAlex and falls back to Crossref. The result set is not a comprehensive inventory of every AI paper; Crossref coverage and ranking vary, and OpenAlex may miss an available copy. A link labelled open PDF points to the hosting publisher or repository; PDF download depends on that host. No subscription PDFs are stored here.
+
+The current static implementation uses anonymous OpenAlex calls, which have a limited budget and may be throttled. For sustained public use, add a small server-side search endpoint with an OpenAlex API key stored as a server secret, response caching, and rate limiting. Never commit a personal key to this repository or embed it in browser JavaScript.
