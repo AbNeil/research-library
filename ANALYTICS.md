@@ -5,7 +5,7 @@ The GitHub Pages site cannot store shared counters. This Cloudflare Worker with 
 ## Deploy with a Cloudflare account
 
 1. Install the official Wrangler CLI and authenticate: `npx wrangler login`.
-2. From the repository root, create a database: `npx wrangler d1 create research-library-analytics --config analytics-wrangler.jsonc`. Replace `REPLACE_WITH_D1_DATABASE_ID` in `analytics-wrangler.jsonc` with the returned ID.
+2. From the repository root, create a database: `npx wrangler d1 create research-library-analytics`. Replace `REPLACE_WITH_D1_DATABASE_ID` in `analytics-wrangler.jsonc` with the returned ID.
 3. Apply the schema: `npx wrangler d1 execute research-library-analytics --remote --file=analytics-schema.sql --config analytics-wrangler.jsonc`.
 4. Create distinct, long random secrets with `npx wrangler secret put HASH_SALT --config analytics-wrangler.jsonc` and `npx wrangler secret put DASHBOARD_TOKEN --config analytics-wrangler.jsonc`. Do not commit either value. The latter is entered in the dashboard on each browser session and is held in memory only.
 5. Deploy: `npx wrangler deploy --config analytics-wrangler.jsonc`. Copy the resulting `https://...workers.dev` URL into `analytics-config.js`, commit that public URL, and wait for GitHub Pages deployment. Do not put either secret or a D1 identifier in `analytics-config.js`.
