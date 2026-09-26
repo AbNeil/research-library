@@ -1,6 +1,6 @@
 # Research Library
 
-A static, searchable index of AI, machine learning, deep learning, data science, and language model papers. It can be hosted with GitHub Pages. The catalogue starts empty intentionally: entries must be checked against authoritative metadata and their open full-text URLs must be legitimate.
+A static, searchable index of AI, machine learning, deep learning, data science, and language model papers. It can be hosted with GitHub Pages. The catalogue starts with a small, verified seed set. Additional entries should be checked against authoritative metadata and legitimate open full-text locations.
 
 ## Add papers
 
@@ -25,7 +25,7 @@ Edit `papers.json` as a JSON array. Example schema (replace the placeholders wit
 
 ## Publish
 
-Create a public repository (for example `research-library`), add these files to its default branch, then enable GitHub Pages from **Settings → Pages → Deploy from a branch**, using the root directory. The resulting URL is normally `https://USERNAME.github.io/research-library/`.
+This repository is published with GitHub Pages from the `main` branch and root directory at `https://abneil.github.io/research-library/`.
 
 ## Catalogue growth
 
