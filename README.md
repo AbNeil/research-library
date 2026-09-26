@@ -36,3 +36,9 @@ Use a defined source and scope before bulk importing. Crossref exposes publicati
 Title search requests up to 10 Crossref matches published since 2015 and looks up open copies by DOI through OpenAlex. DOI lookup first tries OpenAlex and falls back to Crossref. The result set is not a comprehensive inventory of every AI paper; Crossref coverage and ranking vary, and OpenAlex may miss an available copy. A link labelled open PDF points to the hosting publisher or repository; PDF download depends on that host. No subscription PDFs are stored here.
 
 The current static implementation uses anonymous OpenAlex calls, which have a limited budget and may be throttled. For sustained public use, add a small server-side search endpoint with an OpenAlex API key stored as a server secret, response caching, and rate limiting. Never commit a personal key to this repository or embed it in browser JavaScript.
+
+## Reading and private-sharing workflow
+
+Each result links to its original publisher page. When a verified open copy is known, readers can open it on the publisher or repository host. A subscription or unknown-access result offers a prepared email request to the project lead; this does **not** confer access. Before any individual copy or publisher share link is sent, the project lead must verify the specific article, publisher terms, institutional licence, recipient and approved sharing method. Any approved private link belongs in the authorised channel, not in this public repository or `papers.json`.
+
+Do not proxy institutional sessions, embed access tokens, upload subscription PDFs, or present subscription content in an iframe through someone else's credentials.
